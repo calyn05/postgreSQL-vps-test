@@ -1,0 +1,24 @@
+name: NodeJS CD
+
+on:
+ push:
+  branches: [master]
+  
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Deploy using SSH
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        key: ${{ secrets.PRIVATE_KEY }}
+        port: 22
+        script: |
+          cd ~repo/postgreSQL-vps-test
+          git pull origin master
+          git status
+          npm install --only=prod
+          pm2 restart app.js
