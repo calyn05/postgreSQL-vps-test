@@ -17,7 +17,7 @@ jobs:
         key: ${{ secrets.PRIVATE_KEY }}
         port: 22
         script: |
-          cd ~repo/postgreSQL-vps-test
+          cd repo/postgreSQL-vps-test
           git pull origin master
           git status
           npm install --only=prod
