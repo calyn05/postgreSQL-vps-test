@@ -20,4 +20,4 @@ jobs:
             cd repo/postgreSQL-vps-test
             git pull
             git status
-            pm2 restart app.js
+            pm2 restart
