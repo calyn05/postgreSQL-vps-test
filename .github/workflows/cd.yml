@@ -18,6 +18,6 @@ jobs:
           port: 22
           script: |
             cd repo/postgreSQL-vps-test
-            git pull
+            git pull master
             git status
-            pm2 restart
+            pm2 restart app.js
